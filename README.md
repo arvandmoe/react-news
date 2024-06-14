@@ -1,6 +1,7 @@
 # React News
 
 React News Aggregator
+
 ## Getting Started
 
 ```
@@ -13,6 +14,7 @@ npm run dev
 - [] Implement News UI + Search and Filtering UI
 - [] Add News API Service
 - [] Implement Searching and Filtering
+- [] Make Responsive
 - [] Add Dockerfile and document deployment
 - [] Add tests
 
