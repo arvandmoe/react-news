@@ -11,8 +11,8 @@ npm run dev
 
 ## Getting Done
 
-- [] Implement News UI + Search and Filtering UI
-- [] Add News API Service
+- [X] Implement News UI + Search and Filtering UI
+- [X] Add News API Services
 - [] Implement Searching and Filtering
 - [] Make Responsive
 - [] Add Dockerfile and document deployment
