@@ -9,13 +9,19 @@ export const guardianApi = createApi({
     baseUrl: import.meta.env?.VITE_GUARDIAN_BASE_URL,
   }),
   endpoints: (builder) => ({
-    getGuardianArticles: builder.query<Article[], void>({
-      query: () => {
+    getGuardianArticles: builder.query<
+      Article[],
+      Partial<SearchPayload> | void
+    >({
+      query: (payload) => {
         return {
           url: `search`,
           params: {
             "api-key": import.meta.env?.VITE_GUARDIAN_API_KEY,
             "show-fields": "thumbnail,headline,short-url",
+            ...(payload?.query != "" && { q: payload?.query }),
+            ...(Array.isArray(payload?.sections) &&
+              payload?.sections.length >= 1 && { section: payload?.sections[0] }),
           },
         };
       },

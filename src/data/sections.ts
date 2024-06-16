@@ -1,4 +1,4 @@
-export const newsCategories = [
+export const sections = [
   "Breaking News",
   "Politics",
   "Business",
@@ -16,10 +16,8 @@ export const newsCategories = [
   "Environment",
   "Food",
   "Gaming",
-  "Media",
   "Music",
   "Real Estate",
-  "Social Issues",
   "Space",
   "Weather",
   "Art",
@@ -30,7 +28,6 @@ export const newsCategories = [
   "Fashion",
   "Finance",
   "Fitness",
-  "Home & Garden",
   "Law",
   "Military",
   "Parenting",
@@ -38,6 +35,4 @@ export const newsCategories = [
   "Relationships",
   "Retail",
   "Social Media",
-  "Transportation",
-  "TV & Movies",
 ]

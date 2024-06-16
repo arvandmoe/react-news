@@ -23,8 +23,8 @@ docker run -d -p 8080:8080 --env-file .env react-news:v1.0
 
 - [X] Implement News UI + Search and Filtering UI
 - [X] Add News API Services
-- [] Implement Searching and Filtering
-- [] Make Responsive
+- [X] Implement Searching and Filtering
+- [X] Make Responsive
 - [X] Add Dockerfile and document deployment
 
 ## Features

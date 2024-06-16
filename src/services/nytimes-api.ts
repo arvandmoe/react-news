@@ -12,22 +12,24 @@ export const nytimesApi = createApi({
   reducerPath: "nytimesApi",
   baseQuery: fetchBaseQuery({ baseUrl: import.meta.env?.VITE_NYT_BASE_URL }),
   endpoints: (builder) => ({
-    getNytimesArticles: builder.query<Article[], void>({
-      query: () => {
-        return {
-          url: `svc/search/v2/articlesearch.json`,
-          params: {
-            q: "",
-            "api-key": import.meta.env?.VITE_NYT_API_KEY,
-          },
-        };
-      },
-      transformResponse(baseQueryReturnValue, meta) {
-        return transformNytimesResponse(
-          baseQueryReturnValue as NytimesResponse
-        );
-      },
-    }),
+    getNytimesArticles: builder.query<Article[], Partial<SearchPayload> | void>(
+      {
+        query: (payload) => {
+          return {
+            url: `svc/search/v2/articlesearch.json`,
+            params: {
+              ...(payload?.query != "" && { q: payload?.query }),
+              "api-key": import.meta.env?.VITE_NYT_API_KEY,
+            },
+          };
+        },
+        transformResponse(baseQueryReturnValue, meta) {
+          return transformNytimesResponse(
+            baseQueryReturnValue as NytimesResponse
+          );
+        },
+      }
+    ),
   }),
 });
 

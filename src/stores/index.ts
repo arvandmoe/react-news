@@ -3,7 +3,7 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { guardianApi } from "@/services/guardian-api";
 import { newsapiApi } from "@/services/newsapi-api";
 import { nytimesApi } from "@/services/nytimes-api";
-import news from "./news-slice";
+import searchSlice from "./search-slice";
 
 export const createStore = (
   options?: ConfigureStoreOptions["preloadedState"] | undefined
@@ -13,7 +13,7 @@ export const createStore = (
       [guardianApi.reducerPath]: guardianApi.reducer,
       [newsapiApi.reducerPath]: newsapiApi.reducer,
       [nytimesApi.reducerPath]: nytimesApi.reducer,
-      news,
+      searchSlice,
     },
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware()
