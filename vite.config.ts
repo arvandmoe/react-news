@@ -2,7 +2,7 @@ import path from "path"
 import react from "@vitejs/plugin-react"
 import { defineConfig } from "vite"
 
-const basenameProd = '/react-news'
+const basenameProd = '/'
 
 export default defineConfig(({ command }) => {
   const isProd = command === 'build'
@@ -20,5 +20,15 @@ export default defineConfig(({ command }) => {
         basename: isProd ? basenameProd : '',
       },
     },
+    preview: {
+      port: 8080,
+      strictPort: true,
+     },
+     server: {
+      port: 8080,
+      strictPort: true,
+      host: true,
+      origin: "http://0.0.0.0:8080",
+     },
   }
 })
