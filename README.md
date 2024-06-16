@@ -2,8 +2,9 @@
 
 React News Aggregator
 
-## Getting Started
+![screenshot](./docs/images/screenshot.png)
 
+## Getting Started
 
 ### Development
 ```
