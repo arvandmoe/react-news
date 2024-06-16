@@ -11,7 +11,7 @@ import useNews from "@/hooks/useNews";
 import Autoplay from "embla-carousel-autoplay";
 import { Link } from "react-router-dom";
 
-export default function Dashboard() {
+export default function Home() {
   const { articles } = useNews();
   return (
     <div className="flex flex-col min-h-screen">
@@ -94,7 +94,7 @@ export default function Dashboard() {
                       <div className="text-gray-500 text-sm mt-4">
                         {item?.createdAt} 2 hours ago
                       </div>
-                      
+
                     </CardContent>
                   </Card>
                 </Link>

@@ -1,35 +1,33 @@
+import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
-
 import { Applayout } from "./components/layouts/AppLayout";
 
-import NoMatch from "./pages/NoMatch";
-import Dashboard from "./pages/Dashboard";
-import Empty from "./pages/Empty";
-import Sample from "./pages/Sample";
+const HomePage = lazy(() => import("./pages/Home/HomePage"));
+const SearchPage = lazy(() => import("./pages/Search/SearchPage"));
+const NoMatchPage = lazy(() => import("./pages/NoMatch"));
 
-export const router = createBrowserRouter([
+export const router = createBrowserRouter(
+  [
     {
-        path: "/",
-        element: <Applayout />,
-        children: [
-            {
-                path: "",
-                element: <Dashboard />,
-            },
-            {
-                path: "sample",
-                element: <Sample />,
-            },
-            {
-                path: "empty",
-                element: <Empty />,
-            },
-        ],
+      path: "/",
+      element: <Applayout />,
+      children: [
+        {
+          path: "",
+          element: <HomePage />,
+        },
+        {
+          path: "search",
+          element: <SearchPage />,
+        },
+      ],
     },
     {
-        path: "*",
-        element: <NoMatch />,
+      path: "*",
+      element: <NoMatchPage />,
     },
-], {
-    basename: global.basename
-})
+  ],
+  {
+    basename: global.basename,
+  }
+);
