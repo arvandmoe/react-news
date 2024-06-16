@@ -1,6 +1,7 @@
-import { lazy } from "react";
+import { Suspense, lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import { Applayout } from "./components/layouts/AppLayout";
+import { Spinner } from "./components/ui/spinner";
 
 const HomePage = lazy(() => import("./pages/Home/HomePage"));
 const SearchPage = lazy(() => import("./pages/Search/SearchPage"));
@@ -14,11 +15,11 @@ export const router = createBrowserRouter(
       children: [
         {
           path: "",
-          element: <HomePage />,
+          element: <Suspense fallback={<Spinner />}><HomePage /></Suspense>,
         },
         {
           path: "search",
-          element: <SearchPage />,
+          element: <Suspense fallback={<Spinner />}><SearchPage /></Suspense>,
         },
       ],
     },
