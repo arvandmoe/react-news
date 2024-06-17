@@ -6,6 +6,7 @@ import {
 } from "./transformers";
 import { Article } from "@/types/article";
 import { NytimesResponse } from "@/types/dtos/nytimes";
+import { SearchPayload } from "@/types/search";
 
 // Define a service using a base URL and expected endpoints
 export const nytimesApi = createApi({

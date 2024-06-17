@@ -2,6 +2,7 @@ import { GuardianResponse } from "./../types/dtos/guardian";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { transformGuardianResponse } from "./transformers";
 import { Article } from "@/types/article";
+import { SearchPayload } from "@/types/search";
 
 export const guardianApi = createApi({
   reducerPath: "guardianApi",
@@ -21,7 +22,10 @@ export const guardianApi = createApi({
             "show-fields": "thumbnail,headline,short-url",
             ...(payload?.query != "" && { q: payload?.query }),
             ...(Array.isArray(payload?.sections) &&
-              payload?.sections.length >= 1 && { section: payload?.sections[0] }),
+              payload?.sections &&
+              payload?.sections?.length >= 1 && {
+                section: payload?.sections[0],
+              }),
           },
         };
       },

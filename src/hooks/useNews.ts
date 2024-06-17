@@ -2,6 +2,7 @@ import { useGetGuardianArticlesQuery } from "@/services/guardian-api";
 import { useGetNewsApiArticlesQuery } from "@/services/newsapi-api";
 import { useGetNytimesArticlesQuery } from "@/services/nytimes-api";
 import { Article } from "@/types/article";
+import { SearchPayload } from "@/types/search";
 import { useEffect, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useDebounceValue } from "usehooks-ts";

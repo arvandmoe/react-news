@@ -2,6 +2,7 @@ import { Article } from "@/types/article";
 import { NewsAPIResponse } from "@/types/dtos/newsapi";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { transformNewsAPIResponse } from "./transformers";
+import { SearchPayload } from "@/types/search";
 
 export const newsapiApi = createApi({
   reducerPath: "newsapiApi",
@@ -17,7 +18,7 @@ export const newsapiApi = createApi({
             method: "POST",
             body: {
               action: "getArticles",
-              keyword: payload?.query != '' ? payload?.query : "tech",
+              keyword: payload?.query != "" ? payload?.query : "tech",
               articlesPage: 1,
               articlesCount: 10,
               articlesSortBy: "date",
@@ -28,7 +29,10 @@ export const newsapiApi = createApi({
               apiKey: import.meta.env?.VITE_NEWS_API_API_KEY,
               forceMaxDataTimeWindow: 31,
               ...(Array.isArray(payload?.sections) &&
-              payload?.sections.length >= 1 && { categoryUri: payload?.sections }),
+                payload?.sections &&
+                payload?.sections?.length >= 1 && {
+                  categoryUri: payload?.sections,
+                }),
             },
           };
         },
